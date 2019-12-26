@@ -15,5 +15,8 @@ Including another URLconf
 """
 from django.urls import path
 
+from core.views import search
+
 urlpatterns = [
+    path("", search, name="search")
 ]
