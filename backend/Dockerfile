@@ -3,6 +3,7 @@ FROM python:3.8-alpine
 ENV PYTHONUNBUFFERED=1
 ENV DEBUG=0
 ENV CFLAGS="-O0"
+ENV PORT=5000
 
 COPY . /app
 WORKDIR /app
@@ -17,6 +18,6 @@ RUN pip install -r requirements.txt --no-cache-dir
 
 RUN apk del .tmp-build-deps
 
-EXPOSE 5000
+EXPOSE $PORT
 
 CMD sh run_server.sh
